@@ -37,15 +37,20 @@ namespace RPGAdditions.UI
             text.Left.Set(0, 0f);
 
             text2 = new UIText("0/0", 1.3f);
-            text.Width.Set(138, )
+            text2.Width.Set(138, 0f);
+            text2.Height.Set(34, 0f);
+            text2.Top.Set(60, 0f);
+            text2.Left.Set(0, 0f);
 
             area.Append(text);
+            area.Append(text2);
             Append(area);
         }
 
         public override void Update(GameTime gameTime)
         {
             text.SetText($"Level : {Main.LocalPlayer.GetModPlayer<mPlayer>().Level}");
+            text2.SetText($"Exp : {Main.LocalPlayer.GetModPlayer<mPlayer>().Exp}");
         } 
     }
 }

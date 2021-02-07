@@ -20,19 +20,46 @@ namespace RPGAdditions.NPCs
 		{
 			Player player = Main.player[Main.myPlayer];
 			ModPlayer mplayer = (ModPlayer)player.GetModPlayer(mod, "mplayer");
-			if (npc.type == NPCID.Zombie)
+			
+			switch (npc.type)
 			{
-				Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 7;
-			}
-			if (npc.type == NPCID.GreenSlime)
-			{
-				Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 4;
-			}
-			if (npc.type == NPCID.IceSlime)
-            {
-				Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 5;
-            }
+				case NPCID.ZombieEskimo:
+                    {
+						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 7;
+						break;
+                    }
+				case NPCID.Zombie:
+                    {
+						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 7;
+						break;
+                    }
+
+				case NPCID.GreenSlime:
+                    {
+						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 4;
+						break;
+                    }
+
+				case NPCID.IceSlime:
+                    {
+						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 5;
+						break;
+					}
+
+				case NPCID.DemonEye:
+                    {
+						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 6;
+						break;
+                    }
+
+				case NPCID.DemonEye2:
+                    {
+						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 6;
+						break;
+                    }
+			}	
 			base.NPCLoot(npc);
 		}
+
 	}
 }

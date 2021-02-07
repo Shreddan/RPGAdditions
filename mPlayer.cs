@@ -59,7 +59,7 @@ namespace RPGAdditions.modPlayer
 			}
 			else
 			{
-				this.player.statLifeMax = (int)(this.baseLife + this.Level * 1.3);
+				this.player.statLifeMax = (int)(this.baseLife + this.Level * 1.8);
 			}
 			OnLevelUp();
 		}
