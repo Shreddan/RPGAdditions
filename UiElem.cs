@@ -19,6 +19,7 @@ namespace RPGAdditions.UI
     {
 
         private UIText text;
+        private UIText text2;
         private UIElement area;
 
         public override void OnInitialize()
@@ -29,21 +30,22 @@ namespace RPGAdditions.UI
             area.Width.Set(182, 0f);
             area.Height.Set(60, 0f);
 
-            text = new UIText("0/0", 0.8f); // text to show stat
+            text = new UIText("0/0", 1.3f); // text to show stat
             text.Width.Set(138, 0f);
             text.Height.Set(34, 0f);
             text.Top.Set(40, 0f);
             text.Left.Set(0, 0f);
 
+            text2 = new UIText("0/0", 1.3f);
+            text.Width.Set(138, )
+
             area.Append(text);
             Append(area);
         }
 
-
         public override void Update(GameTime gameTime)
         {
             text.SetText($"Level : {Main.LocalPlayer.GetModPlayer<mPlayer>().Level}");
-            this.Update(gameTime);
-        }
+        } 
     }
 }
