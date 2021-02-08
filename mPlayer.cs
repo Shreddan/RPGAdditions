@@ -15,14 +15,37 @@ namespace RPGAdditions.modPlayer
 		public int Level = 1;
 		public int Exp = 0;
 		public int baseLife = 100;
-		public double Scale = 1.5;
+		public double Scale = 3;
 		public int XPBase = 5;
 		public int ExpNext = 0;
 
+		public int Strength = 1;
+		public int Endurance = 1;
+		public int Dexterity = 1;
+		public int Agility = 1;
+		public int Wisdom = 1;
+
 		public void NextLevel()
         {
-			ExpNext = (int)(Math.Pow(Level, Scale) + XPBase);
+			ExpNext = (int)((4 * Math.Pow(Level, Scale)) / XPBase);
         }
+
+		public void StatEnhance()
+        {
+			this.player.stat
+        }
+
+		public void CalcLife()
+        {
+			if (this.Level == 1)
+			{
+				this.player.statLifeMax = this.baseLife;
+			}
+			else
+			{
+				this.player.statLifeMax = (int)(this.baseLife * this.Level / 4.6);
+			}
+		}
 
 		public void OnLevelUp()
 		{
@@ -62,14 +85,7 @@ namespace RPGAdditions.modPlayer
 
 		public override void PostUpdate()
 		{
-			if (this.Level == 1)
-			{
-				this.player.statLifeMax = this.baseLife;
-			}
-			else
-			{
-				this.player.statLifeMax = (int)(this.baseLife + this.Level * 1.8);
-			}
+			CalcLife();
 			OnLevelUp();
 		}
 	}

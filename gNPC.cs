@@ -16,64 +16,32 @@ namespace RPGAdditions.NPCs
 
 		public int xpGiven = 0;
 
-		public override void NPCLoot(NPC npc)
+        public override void NPCLoot(NPC npc)
 		{
 			Player player = Main.player[Main.myPlayer];
 			ModPlayer mplayer = (ModPlayer)player.GetModPlayer(mod, "mplayer");
-			
-			switch (npc.type)
+
+			if (npc.lifeMax >= 10 && npc.lifeMax < 20)
 			{
-				case NPCID.ZombieRaincoat:
-                    {
-						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 7;
-						break;
-					}
-				case NPCID.FemaleZombie:
-                    {
-						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 7;
-						break;
-                    }
-				case NPCID.SlimedZombie:
-                    {
-						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 7;
-						break;
-                    }
-				case NPCID.BaldZombie:
-                    {
-						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 7;
-						break;
-                    }
-				case NPCID.ZombieEskimo:
-                    {
-						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 8;
-						break;
-                    }
-				case NPCID.Zombie:
-                    {
-						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 7;
-						break;
-                    }
-				case NPCID.GreenSlime:
-                    {
-						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 4;
-						break;
-                    }
-				case NPCID.IceSlime:
-                    {
-						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 5;
-						break;
-					}
-				case NPCID.DemonEye:
-                    {
-						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 6;
-						break;
-                    }
-				case NPCID.DemonEye2:
-                    {
-						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 6;
-						break;
-                    }
-			}	
+				Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 6;
+			}
+			else if (npc.lifeMax >= 20 && npc.lifeMax < 30)
+			{
+				Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 10;
+			}
+			else if (npc.lifeMax >= 30 && npc.lifeMax < 40)
+            {
+				Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 14;
+			}
+			else if (npc.lifeMax >= 40 && npc.lifeMax < 50)
+            {
+				Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 20;
+			}
+			else if (npc.lifeMax >= 50 && npc.lifeMax < 60)
+            {
+				Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 28;
+			}
+			
 			base.NPCLoot(npc);
 		}
 
