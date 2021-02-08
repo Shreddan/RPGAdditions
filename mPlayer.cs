@@ -32,7 +32,7 @@ namespace RPGAdditions.modPlayer
 
 		public void StatEnhance()
         {
-			this.player.stat
+			this.player.meleeDamage += Strength * 1.7f;
         }
 
 		public void CalcLife()
@@ -78,12 +78,23 @@ namespace RPGAdditions.modPlayer
 			return new TagCompound
 				{
 					{"Level", Level },
-					{"Exp", Exp }
+					{"Exp", Exp },
+					{"Strength", Strength },
+					{"Endurance", Endurance },
+					{"Dexterity", Dexterity },
+					{"Agility", Agility },
+					{"Wisdom", Wisdom }
 				};
 		}
 
+        public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
+        {
+            base.OnHitNPC(item, target, damage, knockback, crit);
+        }
 
-		public override void PostUpdate()
+
+
+        public override void PostUpdate()
 		{
 			CalcLife();
 			OnLevelUp();
