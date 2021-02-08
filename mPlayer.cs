@@ -15,17 +15,24 @@ namespace RPGAdditions.modPlayer
 		public int Level = 1;
 		public int Exp = 0;
 		public int baseLife = 100;
-		//public int ExpNext = Level * 1.5f + 10;
+		public double Scale = 1.5;
+		public int XPBase = 5;
+		public int ExpNext = 0;
 
+		public void NextLevel()
+        {
+			ExpNext = (int)(Math.Pow(Level, Scale) + XPBase);
+        }
 
 		public void OnLevelUp()
 		{
-			if (Exp >= Level * 1.5f + 10)
+			if (Exp >= ExpNext)
 			{
 				Level++;
 				Exp = 0;
 				player.statLife = player.statLifeMax;
 				Main.NewText("Congratulations, You have levelled up!  You are now Level " + Main.LocalPlayer.GetModPlayer<mPlayer>().Level);
+				NextLevel();
 			}
 		}
 
@@ -39,6 +46,8 @@ namespace RPGAdditions.modPlayer
 			{
 				Exp = tag.GetInt("Exp");
 			}
+			NextLevel();
+
 		}
 
 		public override TagCompound Save()

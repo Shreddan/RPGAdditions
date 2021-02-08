@@ -34,6 +34,7 @@ namespace RPGAdditions
 
         public override void UpdateUI(GameTime gameTime)
         {
+            LevelUI.Update(gameTime);
             _LevelUI.Update(gameTime);
         }
 

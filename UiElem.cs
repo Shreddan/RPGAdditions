@@ -20,6 +20,7 @@ namespace RPGAdditions.UI
 
         private UIText text;
         private UIText text2;
+        private UIText text3;
         private UIElement area;
 
         public override void OnInitialize()
@@ -42,8 +43,15 @@ namespace RPGAdditions.UI
             text2.Top.Set(60, 0f);
             text2.Left.Set(0, 0f);
 
+            text3 = new UIText("0/0", 1.3f);
+            text3.Width.Set(138, 0f);
+            text3.Height.Set(34, 0f);
+            text3.Top.Set(80, 0f);
+            text3.Left.Set(0, 0f);
+
             area.Append(text);
             area.Append(text2);
+            area.Append(text3);
             Append(area);
         }
 
@@ -51,6 +59,7 @@ namespace RPGAdditions.UI
         {
             text.SetText($"Level : {Main.LocalPlayer.GetModPlayer<mPlayer>().Level}");
             text2.SetText($"Exp : {Main.LocalPlayer.GetModPlayer<mPlayer>().Exp}");
+            text3.SetText($"Exp TNL : {Main.LocalPlayer.GetModPlayer<mPlayer>().ExpNext}");
         } 
     }
 }

@@ -23,9 +23,29 @@ namespace RPGAdditions.NPCs
 			
 			switch (npc.type)
 			{
-				case NPCID.ZombieEskimo:
+				case NPCID.ZombieRaincoat:
                     {
 						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 7;
+						break;
+					}
+				case NPCID.FemaleZombie:
+                    {
+						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 7;
+						break;
+                    }
+				case NPCID.SlimedZombie:
+                    {
+						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 7;
+						break;
+                    }
+				case NPCID.BaldZombie:
+                    {
+						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 7;
+						break;
+                    }
+				case NPCID.ZombieEskimo:
+                    {
+						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 8;
 						break;
                     }
 				case NPCID.Zombie:
@@ -33,25 +53,21 @@ namespace RPGAdditions.NPCs
 						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 7;
 						break;
                     }
-
 				case NPCID.GreenSlime:
                     {
 						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 4;
 						break;
                     }
-
 				case NPCID.IceSlime:
                     {
 						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 5;
 						break;
 					}
-
 				case NPCID.DemonEye:
                     {
 						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 6;
 						break;
                     }
-
 				case NPCID.DemonEye2:
                     {
 						Main.LocalPlayer.GetModPlayer<mPlayer>().Exp += 6;
