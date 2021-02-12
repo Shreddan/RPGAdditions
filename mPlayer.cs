@@ -27,7 +27,14 @@ namespace RPGAdditions.modPlayer
 
 		public void NextLevel()
         {
-			ExpNext = (int)((4 * Math.Pow(Level, Scale)) / XPBase);
+			if (Level > 1)
+			{ 
+				ExpNext = (int)((4 * Math.Pow(Level, Scale)) / XPBase); 
+			}
+			else
+            {
+				ExpNext = 10;
+            }
         }
 
 		public void DamageCalc()
@@ -91,7 +98,6 @@ namespace RPGAdditions.modPlayer
 				Exp = tag.GetInt("Exp");
 			}
 			NextLevel();
-
 		}
 
 		public override TagCompound Save()
