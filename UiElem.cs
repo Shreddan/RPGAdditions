@@ -26,10 +26,11 @@ namespace RPGAdditions.UI
         public override void OnInitialize()
         {
             area = new UIElement();
-            area.Left.Set(-area.Width.Pixels - 600, 1f);
-            area.Top.Set(30, 0f);
             area.Width.Set(182, 0f);
             area.Height.Set(60, 0f);
+            area.Left.Set(-area.Width.Pixels - 300, 1f);
+            area.Top.Set(30, 0f);
+            
 
             text = new UIText("0/0", 1.3f); // text to show stat
             text.Width.Set(138, 0f);

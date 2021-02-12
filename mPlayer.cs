@@ -30,9 +30,24 @@ namespace RPGAdditions.modPlayer
 			ExpNext = (int)((4 * Math.Pow(Level, Scale)) / XPBase);
         }
 
-		public void StatEnhance()
+		public void DamageCalc()
         {
 			this.player.meleeDamage += Strength * 1.7f;
+        }
+
+		public void CalcSpeed()
+		{
+			player.moveSpeed = player.moveSpeed * Agility;
+		}
+
+		public void StatUp()
+        {
+			int div = Level % 5;
+			if (div == 0)
+            {
+				Strength++;
+				Agility++;
+            }
         }
 
 		public void CalcLife()
@@ -53,13 +68,19 @@ namespace RPGAdditions.modPlayer
 			{
 				Level++;
 				Exp = 0;
+				StatUp();
 				player.statLife = player.statLifeMax;
 				Main.NewText("Congratulations, You have levelled up!  You are now Level " + Main.LocalPlayer.GetModPlayer<mPlayer>().Level);
 				NextLevel();
 			}
 		}
 
-		public override void Load(TagCompound tag)
+        public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
+        {
+			DamageCalc();
+        }
+
+        public override void Load(TagCompound tag)
 		{
 			if (tag.ContainsKey("Level"))
 			{
@@ -87,16 +108,11 @@ namespace RPGAdditions.modPlayer
 				};
 		}
 
-        public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
-        {
-            base.OnHitNPC(item, target, damage, knockback, crit);
-        }
-
-
 
         public override void PostUpdate()
 		{
 			CalcLife();
+			CalcSpeed();
 			OnLevelUp();
 		}
 	}
