@@ -15,7 +15,7 @@ namespace RPGAdditions.Items
         {
             if (item.type == ItemID.LifeCrystal)
             {
-
+                item.healLife = Main.LocalPlayer.statLifeMax;
             }
             base.OnConsumeItem(item, player);
         }
