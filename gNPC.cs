@@ -10,7 +10,7 @@ using RPGAdditions.modPlayer;
 
 namespace RPGAdditions.NPCs
 {
-	public class gNPCs : GlobalNPC
+	public class GnPCs : GlobalNPC
 	{
 		public override bool InstancePerEntity => true;
 
